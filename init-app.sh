@@ -30,7 +30,7 @@ tornado(){
 	mkdir "$PWD/server/static"
 	mkdir "$PWD/server/templates"
     touch "$PWD/README.md"
-    touch "$PWD/server/main.py"
+    cd server && wget https://www.dropbox.com/s/etux2s86m6msry4/main.py?dl=0 -O main.py
 }
 
 select platform in appengine tornado
