@@ -8,6 +8,14 @@
 <h3> Usage: </h3>
 
 ```
-  sh init-app.sh
+  sh init-app.sh projectname
 
+```
+
+<h3> For Creating a pypi Structure </h3>
+
+```
+ ./init-app.sh <packagename>
+  
+  #select pypi from directory
 ```
