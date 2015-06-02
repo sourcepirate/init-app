@@ -42,10 +42,11 @@ pipy(){
 	mkdir "$PWD/$1/$1"
 	touch "$PWD/$1/$1/__init__.py"
 	mkdir "$PWD/$1/tests/"
+	touch "$PWD/$1/tests/__init__.py"
 	mkdir "$PWD/$1/doc/"
-	mkdir "$PWD/$1/setup.py"
-	mkdir "$PWD/$1/README.md"
-	mkdir "$PWD/$1/.travis.yml"
+	touch "$PWD/$1/setup.py"
+	touch"$PWD/$1/README.md"
+	touch "$PWD/$1/.travis.yml"
 	exit
 }
 
