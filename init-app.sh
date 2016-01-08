@@ -45,8 +45,47 @@ pipy(){
 	touch "$PWD/$1/tests/__init__.py"
 	mkdir "$PWD/$1/doc/"
 	touch "$PWD/$1/setup.py"
-	touch"$PWD/$1/README.md"
+	touch "$PWD/$1/README.md"
 	touch "$PWD/$1/.travis.yml"
+	echo ".idea" >> "$PWD/$1/.gitignore"
+	echo "*.pyc" >> "$PWD/$1/.gitignore"
+	echo "
+		language: python
+		python:
+		- '2.6'
+		- '2.7'
+		- '3.2'
+		install:
+		- pip install six
+
+
+		script: nosetests" >> "$PWD/$1/.travis.yml"
+    echo "
+	from setuptools import setup
+	import os
+
+
+	def Readme():
+		return open(os.path.join(os.path.dirname(__file__), 'README.md'), 'r').read()
+
+	setup(
+		name='$1',
+		packages=['$1'],
+		version='0.0.5',
+		description='',
+		long_description=Readme(),
+		author='plasmashadow',
+		author_email='plasmashadowx@gmail.com',
+		url='https://github.com/plasmashadow/pytorrent.git',
+		classifiers=[
+			'Programming Language :: Python',
+			'Programming Language :: Python :: 2',
+			'Intended Audience :: Developers'
+		],
+		install_requires=['six'],
+		include_package_data=True,
+		license='BSD License',
+	)" >> "$PWD/$1/setup.py"
 	exit
 }
 
